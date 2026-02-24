@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Library Management System</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+
+<body>
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="auth-container">
+        <h2 style="margin-bottom: 2rem; text-align: center;">Library Management System Login</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label>User Role</label>
+                <select id="login-role">
+                    <option value="admin">Administrator</option>
+                    <option value="user">User</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>User ID</label>
+                <input type="text" id="login-id" required placeholder="Enter your ID">
+                <div class="hint-msg">USER ID is "user/adm."</div>
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" id="login-password" required placeholder="••••••••">
+                <div class="hint-msg">PASSWORD is "user/adm."</div>
+            </div>
+            <div id="login-error" class="error-msg hidden">Invalid credentials</div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
+        </form>
+    </div>
+
+    <!-- Main Dashboard (Initially Hidden) -->
+    <div id="app-shell" class="hidden">
+        <aside id="sidebar">
+            <h1 style="font-size: 1.5rem; margin-bottom: 2rem; text-align: center;">Library Management System</h1>
+            <nav>
+                <a href="#dashboard" class="nav-link active">Dashboard</a>
+                <div id="admin-links" class="hidden">
+                    <div
+                        style="margin: 1rem 0 0.5rem; color: #64748b; font-size: 0.75rem; text-transform: uppercase; text-align: center;">
+                        Maintenance Menu</div>
+                    <a href="#membership" class="nav-link">Membership Management</a>
+                    <a href="#books" class="nav-link">Book/Movie Management</a>
+                    <a href="#users" class="nav-link">User Management</a>
+                </div>
+                <div
+                    style="margin: 1rem 0 0.5rem; color: #64748b; font-size: 0.75rem; text-transform: uppercase; text-align: center;">
+                    Transactions</div>
+                <a href="#transactions" class="nav-link">Transaction Menu</a>
+                <a href="#search" class="nav-link">Check Book Availability</a>
+                <a href="#issue" class="nav-link">Issue a Book</a>
+                <a href="#return" class="nav-link">Return a Book</a>
+                <a href="#fine" class="nav-link">Fine Payment</a>
+
+                <div
+                    style="margin: 1rem 0 0.5rem; color: #64748b; font-size: 0.75rem; text-transform: uppercase; text-align: center;">
+                    Reports</div>
+                <a href="#reports" class="nav-link">Reports Menu</a>
+
+                <div style="margin-top: 2rem;">
+                    <button id="logout-btn" class="btn"
+                        style="background: transparent; color: #ef4444; padding-left: 0;">Logout</button>
+                </div>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <header
+                style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem; width: 100%;">
+                <h2 id="page-title" style="margin-bottom: 0.5rem;">Dashboard</h2>
+                <div id="user-info" style="font-size: 0.875rem; color: var(--text-muted);"></div>
+            </header>
+
+            <div id="view-container">
+                <!-- Content injected here -->
+                <div id="dashboard-view">
+                    <div class="card">
+                        <h3>Welcome to LMS</h3>
+                        <p style="margin-top: 1rem;">Select a module from the sidebar to begin.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals or Overlays can go here -->
+
+    <script src="storage.js" type="module"></script>
+    <script src="auth.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+</body>
+
+</html>
